@@ -61,7 +61,10 @@ O server pode ser acessado pelo endereço:
 ```
 pip3 install -r requirements.txt
 ```
-2. rode o arquivo de flow 
-```
 
+2. renomei o arquivo `.env.public` para `.env` apenas
+
+3. rode o arquivo de flow 
+```
+python3 flows.py
 ```
