@@ -1,15 +1,15 @@
 from prefect import flow, task
+from dotenv import load_dotenv
 import os
 import requests
+import json
 
-@task(log_prints=True)
-def print_data():
-    print("Primeira Execução da Task")
+load_dotenv()
 
 @task(log_prints=True)
 def search_cards() -> str:
     url = os.environ.get("URL_API")
-    response = requests.get(url)
+    response = requests.get(f'{url}/cards')
     all_cards = response.json()
     cards = all_cards['cards'] 
 
@@ -17,8 +17,18 @@ def search_cards() -> str:
     print(cards[0])
     return cards
 
-@flow(log_prints=True)
-def init():
-    data = search_cards()
+@task(log_prints=True)
+def search_specific_card(data):
+    url = os.environ.get("URL_API")
+    specific_card = data[0]
+    response = requests.get(f'{url}/cards/{specific_card['id']}')
+    card = (response.json())['card']
+    print("Card específico:")
+    print(json.dumps(card, indent=2, ensure_ascii=False))
 
-init()
+@flow(log_prints=True)
+def project():
+    data = search_cards()
+    search_specific_card(data)
+
+project()
