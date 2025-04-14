@@ -50,7 +50,7 @@ class CardClient:
         except requests.exceptions.RequestException as e:
             raise CardSearchError(f"Erro ao buscar os cards: {e}") from e
 
-    def get_card_by_id(self, card_id: int):
+    def get_card_by_id(self, card_id: int) -> dict:
         """Busca um card específico na API pelo seu ID.
 
         Args:
@@ -69,7 +69,7 @@ class CardClient:
             return response.json()['card']
         except requests.exceptions.RequestException as e:
             raise CardSearchError(f"Erro ao buscar o card específico: {e}") from e
-    def get_cards_by_rarity(self, rarity: str):
+    def get_cards_by_rarity(self, rarity: str) -> list:
         """Busca cards com uma raridade específica na API.
 
         Args:
