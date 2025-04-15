@@ -24,6 +24,6 @@ def project(name: str) -> str:
     """
     data = search_cards()
     search_specific_card(data)
-    data_special = search_special_rarity()
+    data_special = search_special_rarity("Special")
     search_specific_card(data_special)
     return f"{name} processo concluído com sucesso!"

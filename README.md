@@ -66,12 +66,23 @@ pip3 install -r requirements.txt
 
 3. rode o arquivo de flow 
 ```
-python3 flows.py
+python3 main.py
+```
+
+Você deverá ver os logs no seu console do projeto rodando
+![alt text](images/console.png)
+
+E também poderá ver a execução acessando o server local do prefect
+![alt text](images/dashboardPrefect.png)
+
+4. Para rodar os testes unitários 
+```
+pytest
 ```
 
 ## Melhorias:
-
+- [ ] Realizar Testes unitários mais complexos
 - [ ] Realizar alguns processamentos e transformações dos dados da API
-- [ ] Salvar os dados processados no Firebase
-- [ ] Caso seja interessante fazer analises, salvar os dados na Cloud (Prefect ou GCP)
+- [ ] Salvar os dados processados no Firebase ou fazer analises, salvar os dados na Cloud (Prefect ou GCP)
 - [ ] Implementar um script para executar o server automaticamente e logo após já executar o arquivo main.py
+- [ ] Rodar o projeto pela Cloud do Prefect e não por server
