@@ -43,7 +43,7 @@ def search_specific_card(data: list) -> dict:
 
     Args:
         data (list): Uma lista contendo um dicionário com o ID do card a ser pesquisado.
-                     Espera-se que a lista contenha pelo menos um elemento com a chave 'id'.
+                    Espera-se que a lista contenha pelo menos um elemento com a chave 'id'.
 
     Returns:
         dict: Um dicionário representando o card encontrado com o ID especificado.
@@ -56,7 +56,7 @@ def search_specific_card(data: list) -> dict:
 
 
 @task(log_prints=True, retries=3, timeout_seconds=4, retry_delay_seconds=2)
-def search_special_rarity() -> list:
+def search_special_rarity(rarity: str) -> list:
     """Pesquisa cards com raridade 'Special' com retentativas e timeout.
 
     Esta tarefa tenta buscar cards com raridade 'Special'
@@ -71,7 +71,7 @@ def search_special_rarity() -> list:
     retry_count = run_context.task_run.run_count
     possible_retries = int(os.environ.get("QT_RETRY"))
     logger.info("Tentativa número: %d ", retry_count)
-    cards = client.get_cards_by_rarity("Special")
+    cards = client.get_cards_by_rarity(rarity)
     if retry_count < possible_retries:
         time.sleep(5)
     logger.info("Busca especial finalizada")

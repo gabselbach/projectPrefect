@@ -5,7 +5,6 @@ import unittest
 from unittest.mock import patch
 from unittest.mock import MagicMock
 
-import pytest
 import requests
 
 from src.api.card_client import CardClient
