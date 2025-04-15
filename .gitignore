@@ -4,3 +4,4 @@ prefect-virtual/
 __pycache__
 projectprefect.egg-info
 .pytest_cache
+.vscode

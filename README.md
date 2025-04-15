@@ -68,3 +68,10 @@ pip3 install -r requirements.txt
 ```
 python3 flows.py
 ```
+
+## Melhorias:
+
+- [ ] Realizar alguns processamentos e transformações dos dados da API
+- [ ] Salvar os dados processados no Firebase
+- [ ] Caso seja interessante fazer analises, salvar os dados na Cloud (Prefect ou GCP)
+- [ ] Implementar um script para executar o server automaticamente e logo após já executar o arquivo main.py
